@@ -61,7 +61,11 @@ export default {
       if (!this.searchQuery) return this.words;
       const keyword = this.searchQuery.toLowerCase();
       return this.words.filter(word =>
-        word.english.toLowerCase().includes(keyword)
+         Object.values(word)
+        .join(' ')
+        .toLowerCase()
+        .includes(keyword)
+        
       );
     }
   },
